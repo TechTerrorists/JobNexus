@@ -153,12 +153,14 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "linkedin-scraper" },
+    { name = "python-dotenv" },
     { name = "python-jobspy" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "linkedin-scraper", specifier = ">=3.1.0" },
+    { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "python-jobspy", specifier = ">=1.1.82" },
 ]
 

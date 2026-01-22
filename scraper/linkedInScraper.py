@@ -1,17 +1,14 @@
-from linkedin_scraper import JobSearchScraper, BrowserManager, wait_for_manual_login
+from linkedin_scraper import JobSearchScraper, BrowserManager, login_with_credentials
 import asyncio
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 async def create_session(browser):
-
-    await browser.page.goto("https://www.linkedin.com/login")
-
-    print("Login kro")
-    await wait_for_manual_login(browser.page, timeout=300000)
-
+    await login_with_credentials(browser.page, os.getenv("LINKEDIN_EMAIL"), os.getenv("LINKEDIN_PASSWORD"))
     await browser.save_session("session.json")
-    print("Login done")
-
 
 
 async def main():
