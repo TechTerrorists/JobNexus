@@ -5,6 +5,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmb
 from langchain_pinecone import PineconeVectorStore
 from langgraph.graph import StateGraph, START, END
 from scraper.linkedInScraper import LinkedInScraper
+from scraper.job_scraper import LinkedInJobsScraper
 from state.resumeState import JobMatchingAgentState, ProfileSchema
 
 
@@ -63,9 +64,17 @@ def generate_embedding_and_store(state:JobMatchingAgentState):
     }
 
 async def extract_jobs(state:JobMatchingAgentState):
-    async with LinkedInScraper(headless=True) as client:
-        jobs = await client.search_jobs(state["prefered_role"],state["prefered_location"])
-    return{ "ScrapedJobs":jobs}
+    params = {"keywords" : state["prefered_role"], "location" : state["prefered_location"], "max_jobs" : 100}
+    
+    async with LinkedInJobsScraper() as client:
+        jobs = await client.scrape_jobs(**params)
+        await client.save_results(jobs)
+
+    return {"Scraped Jobs" : jobs}
+
+   # async with LinkedInScraper(headless=True) as client:
+    #    jobs = await client.search_jobs(state["prefered_role"],state["prefered_location"])
+    #return{ "ScrapedJobs":jobs}
         
 
 workflow = StateGraph(JobMatchingAgentState)
