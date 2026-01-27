@@ -38,6 +38,7 @@ class LinkedInScraper:
             location=location,
             limit=limit
         )
+    
 
 
 async def main():
