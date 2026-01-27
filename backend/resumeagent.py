@@ -17,7 +17,7 @@ model = ChatGoogleGenerativeAI(
     timeout=30
     # ... (other params)
 )
-vector_store=PineconeVectorStore(index_name=os.environ["PINECONE_INDEX_NAME"],embedding=embeddings,)
+vector_store=PineconeVectorStore(index_name=os.environ["PINECONE_INDEX_NAME"],embedding=embeddings)
 def loadResume(state:JobMatchingAgentState):
     """
     extract Raw Text
@@ -66,12 +66,27 @@ def generate_embedding_and_store(state:JobMatchingAgentState):
 async def extract_jobs(state:JobMatchingAgentState):
     params = {"keywords" : state["prefered_role"], "location" : state["prefered_location"], "max_jobs" : 100}
     
-    async with LinkedInJobsScraper() as client:
-        jobs = await client.scrape_jobs(**params)
-        await client.save_results(jobs)
+    try:
+        async with LinkedInJobsScraper() as client:
+            jobs = await client.scrape_jobs(**params)
+            
+            if isinstance(jobs, list):
+                jobs_data = jobs
+            elif isinstance(jobs, dict):
+                jobs_data = jobs
+            else:
+                jobs_data = []
 
-    return {"Scraped Jobs" : jobs}
-
+            return {
+                "Scraped Jobs" : jobs_data,
+                "status" : "COMPLETED"
+            }
+    except Exception as e:
+        return {
+            "Scraped Jobs" : [],
+            "status" : "FAILED"
+        }
+            
    # async with LinkedInScraper(headless=True) as client:
     #    jobs = await client.search_jobs(state["prefered_role"],state["prefered_location"])
     #return{ "ScrapedJobs":jobs}

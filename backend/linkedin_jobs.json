@@ -18,21 +18,14 @@
     "company": "Microsoft",
     "location": "Bengaluru, Karnataka, India",
     "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4346770001",
-    "posted_date": "4 days ago"
-  },
-  {
-    "title": "Software Engineer 1",
-    "company": "Intuit",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-1-at-intuit-4331964856",
-    "posted_date": "2 weeks ago"
+    "posted_date": "5 days ago"
   },
   {
     "title": "Software Engineer",
     "company": "Microsoft",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4359728085",
-    "posted_date": "2 weeks ago"
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4361354520",
+    "posted_date": "1 week ago"
   },
   {
     "title": "Software Engineer",
@@ -45,15 +38,15 @@
     "title": "Software Engineer",
     "company": "Microsoft",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4361354520",
-    "posted_date": "1 week ago"
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4359728085",
+    "posted_date": "2 weeks ago"
   },
   {
-    "title": "Software Engineer",
-    "company": "Microsoft",
-    "location": "Hyderabad, Telangana, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4346602272",
-    "posted_date": "5 days ago"
+    "title": "Software Engineer 1",
+    "company": "Intuit",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-1-at-intuit-4331964856",
+    "posted_date": "2 weeks ago"
   },
   {
     "title": "Software Engineer",
@@ -64,30 +57,16 @@
   },
   {
     "title": "Software Engineer",
-    "company": "LinkedIn",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-linkedin-4363633837",
-    "posted_date": "1 week ago"
-  },
-  {
-    "title": "Software Engineer -2",
     "company": "Microsoft",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-2-at-microsoft-4365272769",
-    "posted_date": "3 days ago"
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4346602272",
+    "posted_date": "6 days ago"
   },
   {
     "title": "Software Engineer",
-    "company": "Microsoft",
-    "location": "India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4365391732",
-    "posted_date": "2 days ago"
-  },
-  {
-    "title": "Software Development Engineer - SDE3",
-    "company": "Reliance Retail",
+    "company": "LinkedIn",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-sde3-at-reliance-retail-4329006285",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-linkedin-4363633837",
     "posted_date": "1 week ago"
   },
   {
@@ -95,7 +74,21 @@
     "company": "Microsoft",
     "location": "India",
     "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4365332859",
-    "posted_date": "2 days ago"
+    "posted_date": "4 days ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Microsoft",
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-microsoft-4365044933",
+    "posted_date": "5 days ago"
+  },
+  {
+    "title": "Software Engineer - Frontend",
+    "company": "PayPal",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-frontend-at-paypal-4348410085",
+    "posted_date": "4 days ago"
   },
   {
     "title": "Software Engineer",
@@ -105,17 +98,10 @@
     "posted_date": "1 week ago"
   },
   {
-    "title": "Software Engineer, Frontend",
-    "company": "Cisco",
+    "title": "Software Development Engineer - SDE3",
+    "company": "Reliance Retail",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-frontend-at-cisco-4365461038",
-    "posted_date": "2 days ago"
-  },
-  {
-    "title": "Software Engineer",
-    "company": "Cisco",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-cisco-4329215565",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-sde3-at-reliance-retail-4329006285",
     "posted_date": "1 week ago"
   },
   {
@@ -126,11 +112,25 @@
     "posted_date": "2 weeks ago"
   },
   {
+    "title": "Software Engineer",
+    "company": "Cisco",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-cisco-4329215565",
+    "posted_date": "1 week ago"
+  },
+  {
     "title": "Backend Software Development Engineer",
     "company": "Cisco",
     "location": "Bengaluru, Karnataka, India",
     "job_link": "https://in.linkedin.com/jobs/view/backend-software-development-engineer-at-cisco-4328631029",
     "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer -2",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-2-at-microsoft-4365272769",
+    "posted_date": "4 days ago"
   },
   {
     "title": "Software Dev Engineer I",
@@ -154,39 +154,25 @@
     "posted_date": "1 week ago"
   },
   {
-    "title": "Frontend Software Engineer (Web)",
-    "company": "YouTrip",
-    "location": "Chennai, Tamil Nadu, India",
-    "job_link": "https://in.linkedin.com/jobs/view/frontend-software-engineer-web-at-youtrip-4365468375",
-    "posted_date": "2 days ago"
-  },
-  {
-    "title": "Software Engineer II",
-    "company": "Microsoft",
+    "title": "Software Engineer III, Full Stack, Core",
+    "company": "Google",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4346587345",
-    "posted_date": "4 days ago"
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-iii-full-stack-core-at-google-4365591088",
+    "posted_date": "3 days ago"
   },
   {
     "title": "Software Development Engineer",
     "company": "Adobe",
     "location": "Noida, Uttar Pradesh, India",
     "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-adobe-4322935685",
-    "posted_date": "2 weeks ago"
+    "posted_date": "3 weeks ago"
   },
   {
-    "title": "Software Engineer (Only Noida)",
-    "company": "Eightfold AI",
-    "location": "Noida, Uttar Pradesh, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-only-noida-at-eightfold-ai-4362378807",
-    "posted_date": "1 week ago"
-  },
-  {
-    "title": "Software Engineer - I",
-    "company": "Deutsche Telekom Digital Labs",
-    "location": "Gurgaon, Haryana, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-i-at-deutsche-telekom-digital-labs-4365093645",
-    "posted_date": "3 days ago"
+    "title": "Software Development Engineer III",
+    "company": "Flipkart",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-iii-at-flipkart-4330058157",
+    "posted_date": "3 weeks ago"
   },
   {
     "title": "Software Engineer -2",
@@ -196,32 +182,67 @@
     "posted_date": "1 week ago"
   },
   {
-    "title": "Software Development Engineer III",
-    "company": "Flipkart",
+    "title": "Software Engineer III, Full Stack",
+    "company": "Google",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-iii-at-flipkart-4330058157",
-    "posted_date": "2 weeks ago"
-  },
-  {
-    "title": "Full Stack Software Developer Engineer",
-    "company": "NxtWave",
-    "location": "Hyderabad, Telangana, India",
-    "job_link": "https://in.linkedin.com/jobs/view/full-stack-software-developer-engineer-at-nxtwave-4254193529",
-    "posted_date": "6 months ago"
-  },
-  {
-    "title": "Software Engineer",
-    "company": "Cisco",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-cisco-4337111878",
-    "posted_date": "2 days ago"
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-iii-full-stack-at-google-4365578425",
+    "posted_date": "3 days ago"
   },
   {
     "title": "Software Development Engineer 2",
     "company": "eBay",
     "location": "Bengaluru, Karnataka, India",
     "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-2-at-ebay-4265464130",
-    "posted_date": "N/A"
+    "posted_date": "1 day ago"
+  },
+  {
+    "title": "Software Engineer- Python & Devops",
+    "company": "Apple",
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-python-devops-at-apple-4359295243",
+    "posted_date": "1 week ago"
+  },
+  {
+    "title": "Software Engineer II - Backend",
+    "company": "Microsoft",
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-backend-at-microsoft-4358113891",
+    "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer, Backend- Platform",
+    "company": "Coinbase",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-backend-platform-at-coinbase-4095195699",
+    "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Capgemini",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-capgemini-4364209131",
+    "posted_date": "6 days ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "LTIMindtree",
+    "location": "Pune, Maharashtra, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-ltimindtree-4353087467",
+    "posted_date": "1 week ago"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4343323539",
+    "posted_date": "2 days ago"
+  },
+  {
+    "title": "Backend Software Engineer",
+    "company": "eBay",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/backend-software-engineer-at-ebay-4265419132",
+    "posted_date": "1 day ago"
   },
   {
     "title": "Software Engineer",
@@ -238,41 +259,6 @@
     "posted_date": "2 weeks ago"
   },
   {
-    "title": "Software Engineer II",
-    "company": "Microsoft",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4358214650",
-    "posted_date": "2 weeks ago"
-  },
-  {
-    "title": "Software Engineer",
-    "company": "LTIMindtree",
-    "location": "Pune, Maharashtra, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-ltimindtree-4353087467",
-    "posted_date": "1 week ago"
-  },
-  {
-    "title": "Software Development Engineer in Test",
-    "company": "Swiggy",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-in-test-at-swiggy-4331022615",
-    "posted_date": "2 weeks ago"
-  },
-  {
-    "title": "Software Engineer",
-    "company": "PayU",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-payu-4352193125",
-    "posted_date": "2 weeks ago"
-  },
-  {
-    "title": "Software Engineer, Backend (India)",
-    "company": "Glean",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-backend-india-at-glean-4195254610",
-    "posted_date": "2 weeks ago"
-  },
-  {
     "title": "Software Engineer",
     "company": "Microsoft",
     "location": "Bengaluru, Karnataka, India",
@@ -280,39 +266,67 @@
     "posted_date": "2 weeks ago"
   },
   {
-    "title": "Software Engineer",
-    "company": "upGrad",
-    "location": "Navi Mumbai, Maharashtra, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-upgrad-4353205309",
-    "posted_date": "1 week ago"
+    "title": "Software Engineer II",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4358214650",
+    "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer_BE",
+    "company": "Airtel Digital",
+    "location": "Gurugram, Haryana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-be-at-airtel-digital-4350650681",
+    "posted_date": "4 weeks ago"
+  },
+  {
+    "title": "Software Engineer- Frontend",
+    "company": "Celonis",
+    "location": "Greater Bengaluru Area",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-frontend-at-celonis-4354175852",
+    "posted_date": "4 days ago"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "Microsoft",
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4343017518",
+    "posted_date": "2 weeks ago"
   },
   {
     "title": "Software Engineer",
-    "company": "PhonePe",
-    "location": "Pune, Maharashtra, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-phonepe-4354775057",
-    "posted_date": "1 week ago"
+    "company": "Graviton Research Capital LLP",
+    "location": "Gurgaon, Haryana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-graviton-research-capital-llp-4019079221",
+    "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Capgemini",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-capgemini-4346214759",
+    "posted_date": "3 weeks ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Teradata",
+    "location": "Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-teradata-4326661453",
+    "posted_date": "4 days ago"
   },
   {
     "title": "Software Engineer - Frontend Developer",
     "company": "Moody's Corporation",
     "location": "Bengaluru, Karnataka, India",
     "job_link": "https://in.linkedin.com/jobs/view/software-engineer-frontend-developer-at-moody-s-corporation-4360836041",
-    "posted_date": "5 days ago"
+    "posted_date": "1 week ago"
   },
   {
     "title": "Software Engineer",
-    "company": "Commonwealth Bank",
-    "location": "Bengaluru East, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-commonwealth-bank-4362966230",
-    "posted_date": "1 week ago"
-  },
-  {
-    "title": "Software Engineer - Python",
-    "company": "Onit India",
-    "location": "Pune, Maharashtra, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-python-at-onit-india-4350434101",
-    "posted_date": "1 week ago"
+    "company": "Oracle",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-oracle-4345268548",
+    "posted_date": "2 weeks ago"
   },
   {
     "title": "Software Engineer",
@@ -322,46 +336,18 @@
     "posted_date": "2 weeks ago"
   },
   {
-    "title": "Software Engineer- Frontend",
-    "company": "Celonis",
-    "location": "Greater Bengaluru Area",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-frontend-at-celonis-4354175852",
-    "posted_date": "2 days ago"
+    "title": "Software Engineer (New Graduation 2026)",
+    "company": "TOYOTA TSUSHO NEXTY ELECTRONICS (THAILAND) CO., LTD.",
+    "location": "Sardhana, Uttar Pradesh, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-new-graduation-2026-at-toyota-tsusho-nexty-electronics-thailand-co-ltd-4262367096",
+    "posted_date": "6 months ago"
   },
   {
-    "title": "Software Engineer",
-    "company": "PayU",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-payu-4340428473",
-    "posted_date": "2 months ago"
-  },
-  {
-    "title": "Jr. Software Engineer",
-    "company": "NetSfere",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/jr-software-engineer-at-netsfere-4099685785",
-    "posted_date": "1 year ago"
-  },
-  {
-    "title": "Software Development Engineer - 1",
-    "company": "Loop AI - Delivery Intelligence Platform",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-1-at-loop-ai-delivery-intelligence-platform-4293764316",
-    "posted_date": "4 months ago"
-  },
-  {
-    "title": "Software Engineer - NodeJs & React Fullstack",
-    "company": "Societe Generale Global Solution Centre",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-nodejs-react-fullstack-at-societe-generale-global-solution-centre-4336839908",
-    "posted_date": "3 days ago"
-  },
-  {
-    "title": "Software Development Engineer [T500-20732]",
-    "company": "Delta Air Lines",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-t500-20732-at-delta-air-lines-4359464536",
-    "posted_date": "2 weeks ago"
+    "title": "Software Engineer - Python",
+    "company": "Onit India",
+    "location": "Pune, Maharashtra, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-python-at-onit-india-4350434101",
+    "posted_date": "1 week ago"
   },
   {
     "title": "Software Engineer - Entry",
@@ -371,6 +357,62 @@
     "posted_date": "2 weeks ago"
   },
   {
+    "title": "Software Engineer II - Frontend",
+    "company": "Microsoft",
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-frontend-at-microsoft-4342140382",
+    "posted_date": "1 week ago"
+  },
+  {
+    "title": "Software Engineer - E4 (Frontend)",
+    "company": "Whatfix",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-e4-frontend-at-whatfix-4360892184",
+    "posted_date": "1 week ago"
+  },
+  {
+    "title": "Software Development Engineer (Frontend and backend)",
+    "company": "TOYOTA TSUSHO NEXTY ELECTRONICS (THAILAND) CO., LTD.",
+    "location": "Sardhana, Uttar Pradesh, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-frontend-and-backend-at-toyota-tsusho-nexty-electronics-thailand-co-ltd-4359010696",
+    "posted_date": "1 week ago"
+  },
+  {
+    "title": "Software Development Engineer [T500-20732]",
+    "company": "Delta Air Lines",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-t500-20732-at-delta-air-lines-4359464536",
+    "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "LTIMindtree",
+    "location": "Pune, Maharashtra, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-ltimindtree-4355848491",
+    "posted_date": "N/A"
+  },
+  {
+    "title": "Software Development Engineer 2",
+    "company": "Titan",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-2-at-titan-4330454544",
+    "posted_date": "1 week ago"
+  },
+  {
+    "title": "Software Engineer - 1 (Platform | Backend)",
+    "company": "Parspec",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-1-platform-backend-at-parspec-4365037037",
+    "posted_date": "5 days ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Cisco",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-cisco-4361673461",
+    "posted_date": "1 week ago"
+  },
+  {
     "title": "Software Developer Engineer – SCG India",
     "company": "SCG",
     "location": "Mumbai Metropolitan Region",
@@ -378,46 +420,46 @@
     "posted_date": "4 months ago"
   },
   {
-    "title": "Software Engineer",
-    "company": "Capgemini",
-    "location": "Mumbai Metropolitan Region",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-capgemini-4346394986",
-    "posted_date": "1 week ago"
-  },
-  {
-    "title": "Software Engineer I / II (Backend)",
-    "company": "YouTrip",
-    "location": "Chennai, Tamil Nadu, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-i-ii-backend-at-youtrip-4365464262",
-    "posted_date": "2 days ago"
-  },
-  {
-    "title": "Software Engineer",
-    "company": "XenonStack Moments",
-    "location": "Ghaziabad, Uttar Pradesh, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-xenonstack-moments-4346648349",
-    "posted_date": "3 weeks ago"
-  },
-  {
-    "title": "Software Engineer",
-    "company": "Docusign",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-docusign-4362623018",
-    "posted_date": "2 days ago"
+    "title": "Software Development Engineer 2 (FrontEnd)",
+    "company": "Adobe",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-2-frontend-at-adobe-4362094889",
+    "posted_date": "5 days ago"
   },
   {
     "title": "Software Engineer",
     "company": "Epsilon",
     "location": "Bengaluru, Karnataka, India",
     "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-epsilon-4361955939",
+    "posted_date": "6 days ago"
+  },
+  {
+    "title": "Software Engineer II",
+    "company": "Microsoft",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4358395338",
+    "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer - NodeJs & React Fullstack",
+    "company": "Societe Generale Global Solution Centre",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-nodejs-react-fullstack-at-societe-generale-global-solution-centre-4336839908",
     "posted_date": "4 days ago"
   },
   {
-    "title": "Software Engineer",
-    "company": "Electronic Arts (EA)",
-    "location": "Hyderabad, Telangana, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-electronic-arts-ea-4313328243",
-    "posted_date": "2 weeks ago"
+    "title": "Software Development Engineer",
+    "company": "Amazon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4279919724",
+    "posted_date": "3 days ago"
+  },
+  {
+    "title": "Software Engineer 3 - Frontend",
+    "company": "eBay",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-3-frontend-at-ebay-4340248642",
+    "posted_date": "1 week ago"
   },
   {
     "title": "Frontend Software Engineer",
@@ -427,73 +469,52 @@
     "posted_date": "8 months ago"
   },
   {
-    "title": "Software Dev Engineer II",
-    "company": "Swiggy",
-    "location": "Kharagpur-I, West Bengal, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-dev-engineer-ii-at-swiggy-4362027027",
-    "posted_date": "4 days ago"
-  },
-  {
-    "title": "Software Engineer II",
-    "company": "Microsoft",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4358510056",
-    "posted_date": "2 weeks ago"
-  },
-  {
-    "title": "Software Engineer - Fullstack",
-    "company": "DigiCert",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-fullstack-at-digicert-4361984610",
-    "posted_date": "4 days ago"
-  },
-  {
-    "title": "Software Dev Engineer I",
-    "company": "Instamart",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-dev-engineer-i-at-instamart-4346286125",
-    "posted_date": "1 month ago"
-  },
-  {
-    "title": "Software Engineer (backend)",
-    "company": "Kodo",
-    "location": "Mumbai Metropolitan Region",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-kodo-4329342114",
-    "posted_date": "1 month ago"
-  },
-  {
-    "title": "Frontend Software Engineer",
-    "company": "Efficienza Business Solutions Pvt. Ltd",
-    "location": "Chennai, Tamil Nadu, India",
-    "job_link": "https://in.linkedin.com/jobs/view/frontend-software-engineer-at-efficienza-business-solutions-pvt-ltd-4298190855",
-    "posted_date": "4 months ago"
-  },
-  {
     "title": "Software Development Engineer",
-    "company": "Amazon",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4346860309",
-    "posted_date": "3 days ago"
-  },
-  {
-    "title": "Software Engineer 2",
-    "company": "Microsoft",
-    "location": "Hyderabad, Telangana, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-2-at-microsoft-4342957791",
-    "posted_date": "3 days ago"
-  },
-  {
-    "title": "Software Engineer",
-    "company": "NetApp",
-    "location": "India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-netapp-4353506146",
+    "company": "Workday",
+    "location": "Greater Chennai Area",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-workday-4141138778",
     "posted_date": "1 week ago"
   },
   {
-    "title": "Software Engineer (Java+Python)",
-    "company": "Amdocs",
-    "location": "Pune, Maharashtra, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-java%2Bpython-at-amdocs-4331023359",
+    "title": "Software Engineer, Commerce Frontend",
+    "company": "Docusign",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-commerce-frontend-at-docusign-4324323848",
+    "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Experian",
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-experian-4362993693",
+    "posted_date": "1 week ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Cisco",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-cisco-4362325220",
+    "posted_date": "1 week ago"
+  },
+  {
+    "title": "Full-Stack Software Engineer - Front-End (Angular, React, NodeJS)",
+    "company": "Cisco",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/full-stack-software-engineer-front-end-angular-react-nodejs-at-cisco-4336606556",
+    "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer - NodeJs & React Fullstack",
+    "company": "Societe Generale Global Solution Centre",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-nodejs-react-fullstack-at-societe-generale-global-solution-centre-4342061760",
+    "posted_date": "4 days ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Epsilon",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-epsilon-4345309730",
     "posted_date": "2 weeks ago"
   },
   {
@@ -504,18 +525,18 @@
     "posted_date": "2 weeks ago"
   },
   {
-    "title": "Software Engineer - NodeJs & React Fullstack",
-    "company": "Societe Generale Global Solution Centre",
+    "title": "Software Development Engineer",
+    "company": "Amazon",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-nodejs-react-fullstack-at-societe-generale-global-solution-centre-4341712316",
-    "posted_date": "3 days ago"
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4346860309",
+    "posted_date": "4 days ago"
   },
   {
-    "title": "Software Development Engineer in Test",
-    "company": "Swiggy",
+    "title": "Software Engineer - Fullstack",
+    "company": "DigiCert",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-in-test-at-swiggy-4326572902",
-    "posted_date": "1 month ago"
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-fullstack-at-digicert-4361984610",
+    "posted_date": "6 days ago"
   },
   {
     "title": "Software Engineer",
@@ -525,39 +546,46 @@
     "posted_date": "1 week ago"
   },
   {
+    "title": "Software Development Engineer in Test",
+    "company": "Swiggy",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-in-test-at-swiggy-4326572902",
+    "posted_date": "1 month ago"
+  },
+  {
+    "title": "Software Engineer 2 - C++",
+    "company": "Microsoft",
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-2-c%2B%2B-at-microsoft-4341225597",
+    "posted_date": "1 week ago"
+  },
+  {
+    "title": "Software Engineer - Python",
+    "company": "Onit",
+    "location": "Pune, Maharashtra, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-python-at-onit-4346335355",
+    "posted_date": "1 month ago"
+  },
+  {
+    "title": "Software Engineer",
+    "company": "Integra Connect",
+    "location": "Bangalore Urban, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-integra-connect-4361530623",
+    "posted_date": "3 days ago"
+  },
+  {
     "title": "Software Development Engineer",
-    "company": "Amazon Web Services (AWS)",
+    "company": "Tesco Bengaluru",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-web-services-aws-4361661240",
-    "posted_date": "1 week ago"
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-tesco-bengaluru-4362132414",
+    "posted_date": "5 days ago"
   },
   {
-    "title": "Software Engineer - MySQL",
-    "company": "Vegayan Systems",
-    "location": "Mumbai Metropolitan Region",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-mysql-at-vegayan-systems-4173063080",
-    "posted_date": "10 months ago"
-  },
-  {
-    "title": "Software Engineer 2",
-    "company": "Microsoft",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-2-at-microsoft-4340795849",
-    "posted_date": "1 week ago"
-  },
-  {
-    "title": "Software Engineer II",
-    "company": "Microsoft",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4354553726",
+    "title": "Software Development Engineer",
+    "company": "Amazon",
+    "location": "Noida, Uttar Pradesh, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4344378675",
     "posted_date": "2 weeks ago"
-  },
-  {
-    "title": "Software Engineer III, Full Stack, Core",
-    "company": "Google",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-iii-full-stack-core-at-google-4365591088",
-    "posted_date": "1 day ago"
   },
   {
     "title": "Software Engineer",
@@ -574,32 +602,25 @@
     "posted_date": "7 months ago"
   },
   {
-    "title": "Software Engineer I",
-    "company": "Tower Research Capital",
-    "location": "Gurgaon, Haryana, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-i-at-tower-research-capital-4305721690",
-    "posted_date": "1 week ago"
+    "title": "Software Engineer II - Full stack",
+    "company": "Microsoft",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer%E2%80%AFii-full-stack-at-microsoft-4345358734",
+    "posted_date": "2 weeks ago"
+  },
+  {
+    "title": "Software Engineer - NodeJs & React Fullstack",
+    "company": "Societe Generale Global Solution Centre",
+    "location": "Bengaluru, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-nodejs-react-fullstack-at-societe-generale-global-solution-centre-4341712316",
+    "posted_date": "4 days ago"
   },
   {
     "title": "Software Engineer",
-    "company": "Infinite Computer Solutions",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-infinite-computer-solutions-4362921355",
-    "posted_date": "1 week ago"
-  },
-  {
-    "title": "Software Dev Engineer I",
-    "company": "Swiggy",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-dev-engineer-i-at-swiggy-4328261724",
-    "posted_date": "1 month ago"
-  },
-  {
-    "title": "Software Development Engineer",
-    "company": "Amazon",
-    "location": "Hyderabad, Telangana, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4346658566",
-    "posted_date": "3 days ago"
+    "company": "HCLTech",
+    "location": "Bangalore Urban, Karnataka, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-hcltech-4364616930",
+    "posted_date": "6 days ago"
   },
   {
     "title": "Software Development Engineer",
@@ -609,39 +630,25 @@
     "posted_date": "1 week ago"
   },
   {
-    "title": "Software Engineer III - ReactJS, Typescript, ES6",
-    "company": "JPMorganChase",
+    "title": "Software Development Engineer",
+    "company": "Amazon",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-iii-reactjs-typescript-es6-at-jpmorganchase-4365286884",
-    "posted_date": "3 days ago"
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4341242739",
+    "posted_date": "1 week ago"
   },
   {
-    "title": "Web Developer",
-    "company": "Brainizen",
-    "location": "Pune, Maharashtra, India",
-    "job_link": "https://in.linkedin.com/jobs/view/web-developer-at-brainizen-4306115460",
-    "posted_date": "3 months ago"
+    "title": "Software Development Engineer",
+    "company": "Amazon",
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4341270090",
+    "posted_date": "1 week ago"
   },
   {
     "title": "Software Development Engineer",
     "company": "Amazon",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4342708547",
-    "posted_date": "5 days ago"
-  },
-  {
-    "title": "Software Engineer II",
-    "company": "Microsoft",
-    "location": "Hyderabad, Telangana, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4358472743",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4360778095",
     "posted_date": "2 weeks ago"
-  },
-  {
-    "title": "Software Engineer -Backend",
-    "company": "Modulr",
-    "location": "Pune, Maharashtra, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-backend-at-modulr-4220088070",
-    "posted_date": "5 days ago"
   },
   {
     "title": "Software Engineer",
@@ -653,9 +660,9 @@
   {
     "title": "Software Development Engineer",
     "company": "Amazon",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4342768176",
-    "posted_date": "5 days ago"
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-amazon-4336542765",
+    "posted_date": "6 days ago"
   },
   {
     "title": "Web Developer",
@@ -665,18 +672,11 @@
     "posted_date": "1 year ago"
   },
   {
-    "title": "Software Engineer | $100K/Yr Remote",
-    "company": "Crossing Hurdles",
-    "location": "India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-%24100k-yr-remote-at-crossing-hurdles-4354127702",
-    "posted_date": "4 days ago"
-  },
-  {
-    "title": "Software Engineer",
-    "company": "Cisco",
+    "title": "Software Development Engineer",
+    "company": "DigiCert",
     "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-at-cisco-4362325220",
-    "posted_date": "1 week ago"
+    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-at-digicert-4330165216",
+    "posted_date": "N/A"
   },
   {
     "title": "Software Engineer(Backend) - Merchant (5 to 7 years)",
@@ -688,15 +688,15 @@
   {
     "title": "Software Engineer II",
     "company": "Microsoft",
-    "location": "Bengaluru, Karnataka, India",
-    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4358222971",
+    "location": "Hyderabad, Telangana, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-ii-at-microsoft-4358472743",
     "posted_date": "2 weeks ago"
   },
   {
-    "title": "Software Development Engineer - Backend",
-    "company": "Upstox",
-    "location": "Mumbai Metropolitan Region",
-    "job_link": "https://in.linkedin.com/jobs/view/software-development-engineer-backend-at-upstox-4351520693",
-    "posted_date": "2 weeks ago"
+    "title": "Software Engineer(L1)",
+    "company": "Saptang Labs",
+    "location": "Chennai, Tamil Nadu, India",
+    "job_link": "https://in.linkedin.com/jobs/view/software-engineer-l1-at-saptang-labs-4048200127",
+    "posted_date": "1 year ago"
   }
 ]
