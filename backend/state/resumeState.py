@@ -17,8 +17,7 @@ class ProfileSchema(BaseModel):
 
 
 class JobMatchingAgentState(TypedDict):
-    user_id:str
-    file_path: str
+    user_id:int
     raw_text: str
     extracted_data: ProfileSchema
     prefered_location:str
