@@ -15,6 +15,7 @@ class JobData:
     location: str
     job_link: str
     posted_date: str
+    description: Optional[str] = None
 
 
 class ScraperConfig:
@@ -72,6 +73,49 @@ class LinkedInJobsScraper:
     def _clean_job_url(self, url: str) -> str:
         """Clean job URL - synchronous, no await needed"""
         return url.split("?")[0] if "?" in url else url
+    
+    async def _fetch_job_description(self, job_url: str) -> str:
+        """Fetch the full job description from the individual job page"""
+        try:
+            async with self.session.get(job_url) as response:
+                if response.status != 200:
+                    print(f"Failed to fetch job description: Status {response.status}")
+                    return "N/A"
+                
+                text = await response.text()
+                soup = BeautifulSoup(text, "html.parser")
+                
+                # Try multiple selectors to find the job description
+                description = None
+                
+                # Method 1: Look for show-more-less-html__markup
+                desc_div = soup.find("div", class_="show-more-less-html__markup")
+                if desc_div:
+                    description = desc_div.get_text(separator="\n", strip=True)
+                
+                # Method 2: Look for description__text
+                if not description:
+                    desc_div = soup.find("div", class_="description__text")
+                    if desc_div:
+                        description = desc_div.get_text(separator="\n", strip=True)
+                
+                # Method 3: Look for any div with 'description' in class name
+                if not description:
+                    desc_div = soup.find("div", class_=lambda x: x and "description" in x.lower())
+                    if desc_div:
+                        description = desc_div.get_text(separator="\n", strip=True)
+                
+                # Method 4: Look for article or section tags
+                if not description:
+                    article = soup.find("article") or soup.find("section", class_=lambda x: x and "description" in x.lower())
+                    if article:
+                        description = article.get_text(separator="\n", strip=True)
+                
+                return description if description else "N/A"
+                
+        except Exception as e:
+            print(f"Error fetching description from {job_url}: {str(e)}")
+            return "N/A"
 
     def _extract_job_data(self, job_card: BeautifulSoup) -> Optional[JobData]:
         """Extract job data from HTML - synchronous, no await needed"""
@@ -89,12 +133,14 @@ class LinkedInJobsScraper:
             posted_date = job_card.find("time", class_="job-search-card__listdate")
             posted_date = posted_date.text.strip() if posted_date else "N/A"
 
+            # We'll fetch description separately
             return JobData(
                 title=title,
                 company=company,
                 location=location,
                 job_link=job_link,
                 posted_date=posted_date,
+                description=None  # Will be fetched later
             )
         except Exception as e:
             print(f"Failed to extract job data: {str(e)}")
@@ -114,7 +160,7 @@ class LinkedInJobsScraper:
             raise RuntimeError(f"Request failed: {str(e)}")
 
     async def scrape_jobs(
-        self, keywords: str, location: str, max_jobs: int = 100
+        self, keywords: str, location: str, max_jobs: int = 100, fetch_descriptions: bool = True
     ) -> List[JobData]:
         """Scrape jobs - async method"""
         all_jobs = []
@@ -127,6 +173,7 @@ class LinkedInJobsScraper:
                 job_cards = soup.find_all("div", class_="base-card")
 
                 if not job_cards:
+                    print("No more job cards found.")
                     break
                     
                 for card in job_cards:
@@ -146,6 +193,18 @@ class LinkedInJobsScraper:
             except Exception as e:
                 print(f"Scraping error: {str(e)}")
                 break
+        
+        # Fetch descriptions for all jobs
+        if fetch_descriptions and all_jobs:
+            print(f"\nFetching descriptions for {len(all_jobs[:max_jobs])} jobs...")
+            for i, job in enumerate(all_jobs[:max_jobs], 1):
+                print(f"Fetching description {i}/{len(all_jobs[:max_jobs])}: {job.title}")
+                job.description = await self._fetch_job_description(job.job_link)
+                
+                # Add delay between description fetches to avoid rate limiting
+                await asyncio.sleep(
+                    random.uniform(ScraperConfig.MIN_DELAY, ScraperConfig.MAX_DELAY)
+                )
                 
         return all_jobs[:max_jobs]
 
@@ -154,6 +213,7 @@ class LinkedInJobsScraper:
     ) -> None:
         """Save results - async file I/O"""
         if not jobs:
+            print("No jobs to save.")
             return
             
         with open(filename, "w", encoding="utf-8") as f:
@@ -162,11 +222,29 @@ class LinkedInJobsScraper:
 
 
 async def main():
-    params = {"keywords": "AI/ML Engineer", "location": "London", "max_jobs": 100}
+    params = {
+        "keywords": "AI/ML Engineer", 
+        "location": "London", 
+        "max_jobs": 10,  # Start with fewer jobs for testing
+        "fetch_descriptions": True
+    }
 
     async with LinkedInJobsScraper() as scraper:  
         jobs = await scraper.scrape_jobs(**params)  
-        await scraper.save_results(jobs)  
+        await scraper.save_results(jobs)
+        
+        # Print sample of results
+        if jobs:
+            print("\n" + "="*80)
+            print("SAMPLE JOB:")
+            print("="*80)
+            sample_job = jobs[0]
+            print(f"Title: {sample_job.title}")
+            print(f"Company: {sample_job.company}")
+            print(f"Location: {sample_job.location}")
+            print(f"Posted: {sample_job.posted_date}")
+            print(f"Link: {sample_job.job_link}")
+            print(f"\nDescription Preview: {sample_job.description[:500] if sample_job.description != 'N/A' else 'N/A'}...")
 
 if __name__ == "__main__":
     asyncio.run(main())
