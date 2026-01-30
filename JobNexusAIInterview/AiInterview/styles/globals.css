@@ -122,3 +122,48 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Learning Panel Styles */
+.flashcard-container {
+  perspective: 1000px;
+}
+
+.flashcard {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard-front,
+.flashcard-back {
+  backface-visibility: hidden;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+.quiz-container .question-container:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-container label:hover {
+  background-color: #F3F4F6;
+}
+
+.learning-panel {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.learning-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.learning-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.learning-panel::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
