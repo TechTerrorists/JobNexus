@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List, Optional
 import aiohttp
 from bs4 import BeautifulSoup
@@ -9,6 +9,17 @@ from urllib.parse import quote
 
 
 @dataclass
+class EmployeeData:
+    name: str
+    title: str
+    profile_link: str
+    education: Optional[List[str]] = None
+    past_experiences: Optional[List[str]] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+
+
+@dataclass
 class JobData:
     title: str
     company: str
@@ -16,6 +27,7 @@ class JobData:
     job_link: str
     posted_date: str
     description: Optional[str] = None
+    employees: List[EmployeeData] = field(default_factory=list)
 
 
 class ScraperConfig:
@@ -42,17 +54,14 @@ class LinkedInJobsScraper:
         self.session = None
 
     async def __aenter__(self):
-        """Async context manager entry"""
         self.session = await self._setup_session()
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
-        """Async context manager exit"""
         if self.session:
             await self.session.close()
 
     async def _setup_session(self) -> aiohttp.ClientSession:
-        """Setup aiohttp session with timeout and retry configuration"""
         timeout = aiohttp.ClientTimeout(total=30)
         connector = aiohttp.TCPConnector(limit=10)
         return aiohttp.ClientSession(
@@ -62,162 +71,158 @@ class LinkedInJobsScraper:
         )
 
     def _build_search_url(self, keywords: str, location: str, start: int = 0) -> str:
-        """Build search URL - synchronous, no await needed"""
-        params = {
-            "keywords": keywords,
-            "location": location,
-            "start": start,
-        }
+        params = {"keywords": keywords, "location": location, "start": start}
         return f"{ScraperConfig.BASE_URL}?{'&'.join(f'{k}={quote(str(v))}' for k, v in params.items())}"
 
     def _clean_job_url(self, url: str) -> str:
-        """Clean job URL - synchronous, no await needed"""
         return url.split("?")[0] if "?" in url else url
-    
-    async def _fetch_job_description(self, job_url: str) -> str:
-        """Fetch the full job description from the individual job page"""
+
+    async def _fetch_page(self, url: str) -> Optional[BeautifulSoup]:
         try:
-            async with self.session.get(job_url) as response:
+            async with self.session.get(url, allow_redirects=True) as response:
+                if "authwall" in str(response.url):
+                    print(f"LinkedIn requires login for {url}. Aborting fetch.")
+                    return None
                 if response.status != 200:
-                    print(f"Failed to fetch job description: Status {response.status}")
-                    return "N/A"
-                
+                    print(f"Failed to fetch page: Status {response.status} for URL: {url}")
+                    return None
                 text = await response.text()
-                soup = BeautifulSoup(text, "html.parser")
-                
-                # Try multiple selectors to find the job description
-                description = None
-                
-                # Method 1: Look for show-more-less-html__markup
-                desc_div = soup.find("div", class_="show-more-less-html__markup")
-                if desc_div:
-                    description = desc_div.get_text(separator="\n", strip=True)
-                
-                # Method 2: Look for description__text
-                if not description:
-                    desc_div = soup.find("div", class_="description__text")
-                    if desc_div:
-                        description = desc_div.get_text(separator="\n", strip=True)
-                
-                # Method 3: Look for any div with 'description' in class name
-                if not description:
-                    desc_div = soup.find("div", class_=lambda x: x and "description" in x.lower())
-                    if desc_div:
-                        description = desc_div.get_text(separator="\n", strip=True)
-                
-                # Method 4: Look for article or section tags
-                if not description:
-                    article = soup.find("article") or soup.find("section", class_=lambda x: x and "description" in x.lower())
-                    if article:
-                        description = article.get_text(separator="\n", strip=True)
-                
-                return description if description else "N/A"
-                
-        except Exception as e:
-            print(f"Error fetching description from {job_url}: {str(e)}")
+                return BeautifulSoup(text, "html.parser")
+        except aiohttp.ClientError as e:
+            print(f"Request failed for {url}: {str(e)}")
+            return None
+
+    async def _fetch_job_description(self, job_url: str) -> str:
+        soup = await self._fetch_page(job_url)
+        if not soup:
             return "N/A"
+        
+        selectors = [
+            "div.show-more-less-html__markup",
+            "div.description__text",
+            "div[class*='description']",
+            "article",
+        ]
+        for selector in selectors:
+            desc_div = soup.select_one(selector)
+            if desc_div:
+                return desc_div.get_text(separator="\n", strip=True)
+        return "N/A"
 
     def _extract_job_data(self, job_card: BeautifulSoup) -> Optional[JobData]:
-        """Extract job data from HTML - synchronous, no await needed"""
         try:
             title = job_card.find("h3", class_="base-search-card__title").text.strip()
-            company = job_card.find(
-                "h4", class_="base-search-card__subtitle"
-            ).text.strip()
-            location = job_card.find(
-                "span", class_="job-search-card__location"
-            ).text.strip()
-            job_link = self._clean_job_url(
-                job_card.find("a", class_="base-card__full-link")["href"]
-            )
-            posted_date = job_card.find("time", class_="job-search-card__listdate")
-            posted_date = posted_date.text.strip() if posted_date else "N/A"
+            company = job_card.find("h4", class_="base-search-card__subtitle").text.strip()
+            location = job_card.find("span", class_="job-search-card__location").text.strip()
+            job_link = self._clean_job_url(job_card.find("a", class_="base-card__full-link")["href"])
+            posted_date_tag = job_card.find("time", class_="job-search-card__listdate")
+            posted_date = posted_date_tag.text.strip() if posted_date_tag else "N/A"
 
-            # We'll fetch description separately
-            return JobData(
-                title=title,
-                company=company,
-                location=location,
-                job_link=job_link,
-                posted_date=posted_date,
-                description=None  # Will be fetched later
-            )
+            return JobData(title=title, company=company, location=location, job_link=job_link, posted_date=posted_date)
         except Exception as e:
             print(f"Failed to extract job data: {str(e)}")
             return None
 
-    async def _fetch_job_page(self, url: str) -> BeautifulSoup:
-        """Fetch job page - async HTTP request"""
-        try:
-            async with self.session.get(url) as response:
-                if response.status != 200:
-                    raise RuntimeError(
-                        f"Failed to fetch data: Status code {response.status}"
-                    )
-                text = await response.text()
-                return BeautifulSoup(text, "html.parser")
-        except aiohttp.ClientError as e:
-            raise RuntimeError(f"Request failed: {str(e)}")
+    async def _scrape_employees_for_company(self, company_name: str, max_employees: int = 5) -> List[EmployeeData]:
+        print(f"Attempting to scrape employees for '{company_name}'.")
+        search_url = f"https://www.linkedin.com/search/results/people/?keywords={quote(company_name)}"
+        
+        soup = await self._fetch_page(search_url)
+        if not soup:
+            print(f"Could not load search results for employees at '{company_name}'. Login is likely required.")
+            return []
+
+        employees = []
+        # Selector for people search results. Highly likely to change and requires login for accuracy.
+        employee_cards = soup.find_all("li", class_="reusable-search__result-container")
+        
+        if not employee_cards:
+            print("Could not find any employee results. Page structure may have changed or login is required.")
+            return []
+
+        for card in employee_cards[:max_employees]:
+            try:
+                name_tag = card.find("span", {"aria-hidden": "true"})
+                name = name_tag.text.strip() if name_tag else "N/A"
+
+                title_tag = card.find("div", class_="entity-result__primary-subtitle")
+                title = title_tag.text.strip() if title_tag else "N/A"
+                
+                profile_link_tag = card.find("a", class_="app-aware-link")
+                profile_link = profile_link_tag['href'] if profile_link_tag else "N/A"
+
+                if name != "N/A":
+                    employees.append(EmployeeData(name=name, title=title, profile_link=profile_link))
+            except Exception as e:
+                print(f"Error parsing employee card: {e}")
+        
+        print(f"Found {len(employees)} potential employee(s) for {company_name}.")
+        return employees
 
     async def scrape_jobs(
-        self, keywords: str, location: str, max_jobs: int = 100, fetch_descriptions: bool = True
+        self, keywords: str, location: str, max_jobs: int = 100, fetch_descriptions: bool = True, fetch_employees: bool = False
     ) -> List[JobData]:
-        """Scrape jobs - async method"""
         all_jobs = []
         start = 0
 
         while len(all_jobs) < max_jobs:
-            try:
-                url = self._build_search_url(keywords, location, start)
-                soup = await self._fetch_job_page(url)  # await async call
-                job_cards = soup.find_all("div", class_="base-card")
-
-                if not job_cards:
-                    print("No more job cards found.")
-                    break
-                    
-                for card in job_cards:
-                    job_data = self._extract_job_data(card)
-                    if job_data:
-                        all_jobs.append(job_data)
-                        if len(all_jobs) >= max_jobs:
-                            break
-                            
-                print(f"Scraped {len(all_jobs)} jobs...")
-                start += ScraperConfig.JOBS_PER_PAGE
-                
-                # Use asyncio.sleep instead of time.sleep
-                await asyncio.sleep(
-                    random.uniform(ScraperConfig.MIN_DELAY, ScraperConfig.MAX_DELAY)
-                )
-            except Exception as e:
-                print(f"Scraping error: {str(e)}")
+            url = self._build_search_url(keywords, location, start)
+            soup = await self._fetch_page(url)
+            if not soup:
                 break
+            
+            job_cards = soup.find_all("div", class_="base-card")
+            if not job_cards:
+                print("No more job cards found.")
+                break
+                
+            for card in job_cards:
+                job_data = self._extract_job_data(card)
+                if job_data:
+                    all_jobs.append(job_data)
+                    if len(all_jobs) >= max_jobs:
+                        break
+                        
+            print(f"Scraped {len(all_jobs)} jobs...")
+            start += ScraperConfig.JOBS_PER_PAGE
+            await asyncio.sleep(random.uniform(ScraperConfig.MIN_DELAY, ScraperConfig.MAX_DELAY))
         
-        # Fetch descriptions for all jobs
-        if fetch_descriptions and all_jobs:
-            print(f"\nFetching descriptions for {len(all_jobs[:max_jobs])} jobs...")
-            for i, job in enumerate(all_jobs[:max_jobs], 1):
-                print(f"Fetching description {i}/{len(all_jobs[:max_jobs])}: {job.title}")
-                job.description = await self._fetch_job_description(job.job_link)
-                
-                # Add delay between description fetches to avoid rate limiting
-                await asyncio.sleep(
-                    random.uniform(ScraperConfig.MIN_DELAY, ScraperConfig.MAX_DELAY)
-                )
-                
-        return all_jobs[:max_jobs]
+        jobs_to_process = all_jobs[:max_jobs]
 
-    async def save_results(
-        self, jobs: List[JobData], filename: str = "linkedin_jobs.json"
-    ) -> None:
-        """Save results - async file I/O"""
+        if fetch_descriptions:
+            print(f"\nFetching descriptions for {len(jobs_to_process)} jobs...")
+            for i, job in enumerate(jobs_to_process, 1):
+                print(f"Fetching description {i}/{len(jobs_to_process)}: {job.title}")
+                job.description = await self._fetch_job_description(job.job_link)
+                await asyncio.sleep(random.uniform(ScraperConfig.MIN_DELAY, ScraperConfig.MAX_DELAY))
+        
+        if fetch_employees:
+            print(f"\nFetching employees for unique companies...")
+            unique_companies = list({job.company for job in jobs_to_process})
+            company_employee_map = {}
+            for i, company_name in enumerate(unique_companies, 1):
+                print(f"Scraping employees for company {i}/{len(unique_companies)}: {company_name}")
+                employees = await self._scrape_employees_for_company(company_name)
+                company_employee_map[company_name] = employees
+                await asyncio.sleep(random.uniform(ScraperConfig.MIN_DELAY, ScraperConfig.MAX_DELAY))
+
+            for job in jobs_to_process:
+                job.employees = company_employee_map.get(job.company, [])
+                
+        return jobs_to_process
+
+    async def save_results(self, jobs: List[JobData], filename: str = "linkedin_jobs.json") -> None:
         if not jobs:
             print("No jobs to save.")
             return
             
         with open(filename, "w", encoding="utf-8") as f:
-            json.dump([vars(job) for job in jobs], f, indent=2, ensure_ascii=False)
+            # Convert dataclasses to dicts for JSON serialization
+            json_output = [vars(job) for job in jobs]
+            for job_dict in json_output:
+                job_dict['employees'] = [vars(emp) for emp in job_dict['employees']]
+            
+            json.dump(json_output, f, indent=2, ensure_ascii=False)
         print(f"Saved {len(jobs)} jobs to {filename}")
 
 
@@ -225,18 +230,18 @@ async def main():
     params = {
         "keywords": "AI/ML Engineer", 
         "location": "London", 
-        "max_jobs": 10,  # Start with fewer jobs for testing
-        "fetch_descriptions": True
+        "max_jobs": 5,
+        "fetch_descriptions": True,
+        "fetch_employees": True
     }
 
     async with LinkedInJobsScraper() as scraper:  
         jobs = await scraper.scrape_jobs(**params)  
-        await scraper.save_results(jobs)
-        
-        # Print sample of results
         if jobs:
+            await scraper.save_results(jobs)
+            
             print("\n" + "="*80)
-            print("SAMPLE JOB:")
+            print("SAMPLE JOB WITH EMPLOYEES:")
             print("="*80)
             sample_job = jobs[0]
             print(f"Title: {sample_job.title}")
@@ -244,8 +249,17 @@ async def main():
             print(f"Location: {sample_job.location}")
             print(f"Posted: {sample_job.posted_date}")
             print(f"Link: {sample_job.job_link}")
-            print(f"\nDescription Preview: {sample_job.description[:500] if sample_job.description != 'N/A' else 'N/A'}...")
+            print(f"\nDescription Preview: {sample_job.description[:200] if sample_job.description != 'N/A' else 'N/A'}...")
+            
+            if sample_job.employees:
+                print(f"\nFound {len(sample_job.employees)} employees at {sample_job.company}:")
+                for emp in sample_job.employees:
+                    print(f"  - Name: {emp.name}, Title: {emp.title}")
+            else:
+                 print(f"\nCould not find employees for {sample_job.company}. This is expected without a logged-in session.")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
