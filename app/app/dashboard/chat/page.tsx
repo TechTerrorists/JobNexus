@@ -5,10 +5,56 @@ import Sidebar from '@/components/layout/Sidebar'
 import DashboardHeader from '@/components/layout/DashboardHeader'
 import { Send } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { saveJobsData, getJobsData } from '@/lib/jobsData'
 
 type Message = {
   role: 'user' | 'assistant'
   content: string
+}
+
+type ScrapedJob = {
+  title: string
+  company: string
+  location: string
+  job_link: string
+  posted_date: string
+  description?: string
+}
+
+function formatMarkdown(text: string) {
+  const processLine = (line: string) => {
+    // Replace ***text*** with <strong><em>text</em></strong>
+    // Replace **text** with <strong>text</strong>
+    return line.split(/(\*\*\*.*?\*\*\*|\*\*.*?\*\*)/).map((part, idx) => {
+      if (part.startsWith('***') && part.endsWith('***')) {
+        return <strong key={idx}><em>{part.slice(3, -3)}</em></strong>
+      }
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={idx}>{part.slice(2, -2)}</strong>
+      }
+      return part
+    })
+  }
+
+  return text
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, '&')
+    .split('\n')
+    .map((line, i) => {
+      const trimmed = line.trim()
+      if (!trimmed) return null
+      
+      if (trimmed.startsWith('* **')) {
+        const content = trimmed.replace(/^\* /, '')
+        return <li key={i} className="ml-4 mb-2 font-semibold list-none">{processLine(content)}</li>
+      }
+      if (trimmed.startsWith('* ')) {
+        const content = trimmed.replace(/^\* /, '')
+        return <li key={i} className="ml-8 mb-1 text-sm list-none">• {processLine(content)}</li>
+      }
+      return <p key={i} className="mb-2">{processLine(line)}</p>
+    })
 }
 
 export default function ChatPage() {
@@ -47,6 +93,40 @@ export default function ChatPage() {
       localStorage.removeItem(`thread_${userId}`)
       setMessages([])
       setThreadId(`thread_${Date.now()}`)
+    }
+  }
+
+  const storeJobs = (data: any) => {
+    console.log('Checking for jobs in response:', data)
+    
+    // Check multiple possible locations for jobs
+    let scrapedJobs = null
+    
+    if (data.state?.ScrapedJobs) {
+      scrapedJobs = data.state.ScrapedJobs
+    } else if (data.ScrapedJobs) {
+      scrapedJobs = data.ScrapedJobs
+    }
+    
+    console.log('Found scraped jobs:', scrapedJobs)
+    
+    if (scrapedJobs && Array.isArray(scrapedJobs) && scrapedJobs.length > 0) {
+      const existingJobs = getJobsData()
+      const maxId = existingJobs.length > 0 ? Math.max(...existingJobs.map(j => j.id)) : 0
+      
+      const newJobs = scrapedJobs.map((job: ScrapedJob, idx: number) => ({
+        id: maxId + idx + 1,
+        title: job.title,
+        company: job.company,
+        location: job.location,
+        job_link: job.job_link,
+        posted_date: job.posted_date,
+        description: job.description || 'N/A'
+      }))
+      
+      console.log('Storing jobs:', newJobs)
+      saveJobsData([...existingJobs, ...newJobs])
+      console.log('Jobs stored successfully')
     }
   }
 
@@ -94,6 +174,8 @@ export default function ChatPage() {
         
         setMessages(prev => [...prev, { role: 'assistant', content: messageContent }])
         if (data.thread_id) setThreadId(data.thread_id)
+        
+        storeJobs(data)
       } else if (data.error) {
         setMessages(prev => [...prev, { role: 'assistant', content: `Error: ${data.error}` }])
       }
@@ -119,9 +201,15 @@ export default function ChatPage() {
               {messages.map((msg, idx) => (
                 <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[70%] rounded-lg px-4 py-2 ${
-                    msg.role === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'
+                    msg.role === 'user' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-800'
                   }`}>
-                    {msg.content}
+                    {msg.role === 'assistant' ? (
+                      <div className="prose prose-sm max-w-none">
+                        {formatMarkdown(msg.content)}
+                      </div>
+                    ) : (
+                      msg.content
+                    )}
                   </div>
                 </div>
               ))}

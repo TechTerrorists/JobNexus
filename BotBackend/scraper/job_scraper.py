@@ -160,7 +160,7 @@ class LinkedInJobsScraper:
         return employees
 
     async def scrape_jobs(
-        self, keywords: str, location: str, max_jobs: int = 20, fetch_descriptions: bool = True, fetch_employees: bool = False
+        self, keywords: str, location: str, max_jobs: int = 5, fetch_descriptions: bool = True, fetch_employees: bool = False
     ) -> List[JobData]:
         all_jobs = []
         start = 0

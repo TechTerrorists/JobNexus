@@ -135,7 +135,6 @@ export default function Dashboard() {
                 <div className="space-y-4">
                   {dummyData.interviewHistory.slice(0, 5).map((interview, idx) => (
                     <div key={idx} className="flex items-center gap-3 pb-3 border-b">
-                      <img src={interview.avatar} alt="" className="w-10 h-10 rounded-full" />
                       <div className="flex-1">
                         <p className="text-sm font-medium">{interview.date}</p>
                         <p className="text-xs text-gray-500">{interview.company}, {interview.position}</p>

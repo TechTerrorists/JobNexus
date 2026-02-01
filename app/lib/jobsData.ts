@@ -7,17 +7,13 @@ export type Job = {
   location: string
   job_link: string
   posted_date: string
+  description?: string
 }
 
 export const getJobsData = (): Job[] => {
   if (typeof window === 'undefined') return []
   const data = localStorage.getItem('jobsData')
-  if (data) {
-    return JSON.parse(data)
-  }
-  // Return dummy data if no jobs in localStorage
-  localStorage.setItem('jobsData', JSON.stringify(dummyJobs))
-  return dummyJobs
+  return data ? JSON.parse(data) : []
 }
 
 export const saveJobsData = (jobs: Job[]) => {

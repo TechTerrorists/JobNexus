@@ -32,11 +32,11 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    label: 'Applications',
+    label: 'Mock Interviews',
     icon: <FileText size={20} />,
     subItems: [
-      { label: 'My Applications', href: '/dashboard/applications', icon: <FileText size={18} /> },
-      { label: 'Interviews', href: '/dashboard/interviews', icon: <MessageSquare size={18} /> },
+      { label: 'Take Interviews', href: '/dashboard/interviews', icon: <FileText size={18} /> },
+      { label: 'Interview History', href: '/dashboard/interviews/history', icon: <MessageSquare size={18} /> },
     ],
   },
   { label: 'Chat', icon: <MessageSquare size={20} />, href: '/dashboard/chat' },
@@ -45,7 +45,7 @@ const menuItems: MenuItem[] = [
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true)
-  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({ Jobs: true, Applications: true })
+  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({ Jobs: true, 'Mock Interviews': true })
   const pathname = usePathname()
 
   const toggleMenu = (label: string) => {

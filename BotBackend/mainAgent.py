@@ -67,10 +67,17 @@ async def call_model(state: AgentState):
     print(state["user_id"])
     prompt=[SystemMessage(content=f"You are a job-matching assistant. "
         "If the user asks for jobs and provides role and location, "
-        "you MUST call the appropriate tool.")]+state["messages"]
+        "you MUST call the appropriate tool. "
+        "IMPORTANT: After listing jobs, you MUST end your response with this exact line: '***All found jobs are stored in the Jobs section.***'")]+state["messages"]
     print("LLM is started")
     response = await llm_with_tools.ainvoke(prompt)
     print("Response of llm",response)
+    
+    # Append the message if jobs were found
+    if response.content and any(keyword in response.content.lower() for keyword in ['job', 'opening', 'position']):
+        if '***All found jobs are stored in the Jobs section.***' not in response.content:
+            response.content += '\n\n***All found jobs are stored in the Jobs section.***'
+    
     return {"messages": [response]}
 
 workflow = StateGraph(AgentState)

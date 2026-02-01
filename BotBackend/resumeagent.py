@@ -78,7 +78,7 @@ async def generate_embedding_and_store(state:JobMatchingAgentState):
     }
 
 async def extract_jobs(state:JobMatchingAgentState):
-    params = {"keywords" : state["prefered_role"], "location" : state["prefered_location"], "max_jobs" : 20}
+    params = {"keywords" : state["prefered_role"], "location" : state["prefered_location"], "max_jobs" : 5}
     
     try:
         async with LinkedInJobsScraper() as client:
