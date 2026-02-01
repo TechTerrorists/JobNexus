@@ -149,7 +149,7 @@ async def main():
     try:
         scraper = service.get_scraper()
         params = StaffSearchParams(
-            company_name="openai",
+            company_name="Google",
             search_term="software engineer",
             location="london",
             extra_profile_data=True,

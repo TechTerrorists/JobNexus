@@ -19,7 +19,7 @@ class ChatInitiateRequest(BaseModel):
 
 @router.post("/initiate")
 async def ChatInitiate(request: ChatInitiateRequest):
-    thread_config = {"configurable": {"thread_id": request.thread_id}}    
+    thread_config = {"configurable": {"thread_id": request.thread_id}}   
     initialState={"user_id":request.user_id,"messages":[HumanMessage(content=request.message)]}
     try:
         state =await mainagent.ainvoke(initialState,config=thread_config) # type: ignore

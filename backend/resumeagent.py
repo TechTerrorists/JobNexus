@@ -24,10 +24,12 @@ async def loadResume(state:JobMatchingAgentState):
     extract Raw Text
     """
     try:
+        print("Supabase is loading")
         res=supabase.table("resume").select("path").eq("id",state["user_id"]).single().execute()
         file_path=res.data["path"]
         pdf_bytes = supabase.storage.from_("JobNexusBucket").download(file_path)
     except Exception as e:
+        print(f"Something went wrong{e}")
         raise RuntimeError(f"Resume load failed or Resume not Uploaded")
     raw_text = ""
     with pdfplumber.open(BytesIO(pdf_bytes)) as pdf:
@@ -99,9 +101,6 @@ async def extract_jobs(state:JobMatchingAgentState):
             "status" : "FAILED"
         }
             
-   # async with LinkedInScraper(headless=True) as client:
-    #    jobs = await client.search_jobs(state["prefered_role"],state["prefered_location"])
-    #return{ "ScrapedJobs":jobs}
         
 
 workflow = StateGraph(JobMatchingAgentState)

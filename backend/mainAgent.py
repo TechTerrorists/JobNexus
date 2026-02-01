@@ -7,6 +7,7 @@ from typing import Annotated, Optional, TypedDict
 from db.database import supabase
 from dotenv import load_dotenv
 from resumeagent import resume_tool
+from reviewerAgent import referrals_tool
 from langchain_core.messages import BaseMessage
 from langgraph.graph import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
@@ -17,6 +18,25 @@ load_dotenv()
 class AgentState(TypedDict):
     user_id: str
     messages:Annotated[list[BaseMessage], add_messages]
+
+async def my_referral_tool(company_name: str, search_term:str,location: str,state: Annotated[AgentState, InjectedState]):
+    """
+    Find the Referrals for the User
+    """
+
+    subgraph_initial_state = {
+        "user_id":state["user_id"],
+        "company_name":company_name,
+        "search_term":search_term,
+        "location":location,
+        "status":"STARTING",
+    }
+
+    result = await referrals_tool.ainvoke(subgraph_initial_state)
+
+    return{
+        "Referrals":result["contacts"]
+    }
 
 
 
@@ -36,7 +56,7 @@ async def my_resume_tool(prefered_role: str, prefered_location: str,state: Annot
         "scraped_jobs": result["ScrapedJobs"]
     }
       
-tools = [my_resume_tool]
+tools = [my_resume_tool,my_referral_tool]
 model = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
     temperature=0.1,
@@ -48,7 +68,9 @@ async def call_model(state: AgentState):
     prompt=[SystemMessage(content=f"You are a job-matching assistant. "
         "If the user asks for jobs and provides role and location, "
         "you MUST call the appropriate tool.")]+state["messages"]
+    print("LLM is started")
     response = await llm_with_tools.ainvoke(prompt)
+    print("Response of llm",response)
     return {"messages": [response]}
 
 workflow = StateGraph(AgentState)
@@ -71,7 +93,7 @@ mainagent = workflow.compile(checkpointer=memory)
 async def run_example():
     config = {"configurable": {"thread_id": "user_session_1"}}
     input_data = {
-        "user_id": 1,
+        "user_id": "c0d8efbc-57be-4f5a-b9bf-cbb7ecab4ab5",
         "messages": [HumanMessage(content=" can u help me find jobs my preferred location is Bangalore, India and preferred role is Software Engineer")]
     }
     final_state = await mainagent.ainvoke(input_data, config=config) # type: ignore
