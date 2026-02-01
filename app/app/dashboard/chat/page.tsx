@@ -85,7 +85,7 @@ export default function ChatPage() {
         if (typeof data.AIMessage === 'string') {
           messageContent = data.AIMessage
         } else if (Array.isArray(data.AIMessage)) {
-          messageContent = data.AIMessage.map(item => item.text || JSON.stringify(item)).join('\n')
+          messageContent = data.AIMessage.map((item: { text?: string }) => item.text || JSON.stringify(item)).join('\n')
         } else if (data.AIMessage.text) {
           messageContent = data.AIMessage.text
         } else {

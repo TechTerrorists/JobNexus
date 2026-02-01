@@ -76,6 +76,7 @@ export function useInputControls({
 
   const cameraToggle = useTrackToggle({
     source: Track.Source.Camera,
+    initialState: false, // Camera off by default
     onDeviceError: (error) => onDeviceError?.({ source: Track.Source.Camera, error }),
   });
 
