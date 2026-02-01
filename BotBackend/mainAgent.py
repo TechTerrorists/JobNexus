@@ -74,9 +74,19 @@ async def call_model(state: AgentState):
     print("Response of llm",response)
     
     # Append the message if jobs were found
-    if response.content and any(keyword in response.content.lower() for keyword in ['job', 'opening', 'position']):
-        if '***All found jobs are stored in the Jobs section.***' not in response.content:
-            response.content += '\n\n***All found jobs are stored in the Jobs section.***'
+    try:
+        if response.content:
+            if isinstance(response.content, list):
+                content_str = ' '.join([str(item) for item in response.content])
+            else:
+                content_str = str(response.content)
+            
+            if any(keyword in content_str.lower() for keyword in ['job', 'opening', 'position']):
+                if '***All found jobs are stored in the Jobs section.***' not in content_str:
+                    if isinstance(response.content, str):
+                        response.content = content_str + '\n\n***All found jobs are stored in the Jobs section.***'
+    except Exception as e:
+        print(f"Error appending message: {e}")
     
     return {"messages": [response]}
 
