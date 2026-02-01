@@ -6,7 +6,6 @@ from pinecone import Pinecone
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
 from langgraph.graph import StateGraph, START, END
-from scraper.linkedInScraper import LinkedInScraper
 from scraper.job_scraper import LinkedInJobsScraper
 from state.resumeState import JobMatchingAgentState, ProfileSchema
 from db.database import supabase
@@ -77,7 +76,7 @@ async def generate_embedding_and_store(state:JobMatchingAgentState):
     }
 
 async def extract_jobs(state:JobMatchingAgentState):
-    params = {"keywords" : state["prefered_role"], "location" : state["prefered_location"], "max_jobs" : 100}
+    params = {"keywords" : state["prefered_role"], "location" : state["prefered_location"], "max_jobs" : 20}
     
     try:
         async with LinkedInJobsScraper() as client:
@@ -125,5 +124,5 @@ resume_subgraph = workflow.compile()
 resume_tool = resume_subgraph.as_tool(
     name="resume_processor",
     description="Loads the Resume and Extract Raw Text from the Resume , Make a Structured Output from the raw text, Create embeddings and store in Vector Db , Find the jobs based on Resume",
-    arg_types={"user_id":int,"prefered_role":str,"prefered_location":str}
+    arg_types={"user_id":str,"prefered_role":str,"prefered_location":str}
 )

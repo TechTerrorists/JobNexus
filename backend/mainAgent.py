@@ -15,7 +15,7 @@ from langgraph.prebuilt import InjectedState
 load_dotenv()
 
 class AgentState(TypedDict):
-    user_id: int
+    user_id: str
     messages:Annotated[list[BaseMessage], add_messages]
 
 

@@ -12,27 +12,36 @@ from langchain.messages import HumanMessage
 
 router = APIRouter(prefix="/chat", tags=["Chat"])
 
+class ChatInitiateRequest(BaseModel):
+    user_id: str
+    thread_id: str
+    message: str
+
 @router.post("/initiate")
-async def ChatInitiate(user_id:int,thread_id:str,message:str):
-    thread_config = {"configurable": {"thread_id": thread_id}}    
-    initialState={"user_id":user_id,"messages":[HumanMessage(content=message)]}
+async def ChatInitiate(request: ChatInitiateRequest):
+    thread_config = {"configurable": {"thread_id": request.thread_id}}    
+    initialState={"user_id":request.user_id,"messages":[HumanMessage(content=request.message)]}
     try:
         state =await mainagent.ainvoke(initialState,config=thread_config) # type: ignore
     except Exception as e:
-        return {"error":e}
+        return {"error":str(e)}
     return {
         "AIMessage": state["messages"][-1].content, # type: ignore
         "state": state,
-        "thread_id": thread_id
+        "thread_id": request.thread_id
     }
 
 @router.get("/continue")
-def continue_chat(thread_id: str, response: str):
+async def continue_chat(thread_id: str, response: str):
     thread_config = {"configurable": {"thread_id": thread_id}}
-    state = await mainagent.ainvoke( # type: ignore
-        Command(resume = response), 
-        config=thread_config) # type: ignore
-
+    try:
+        state = await mainagent.ainvoke(
+            {"messages": [HumanMessage(content=response)]},
+            config=thread_config
+        )
+    except Exception as e:
+        return {"error": str(e)}
+    
     return {
         "AIMessage": state["messages"][-1].content,
         "state": state,
