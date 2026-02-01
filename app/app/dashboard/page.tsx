@@ -127,7 +127,7 @@ export default function Dashboard() {
                 />
               </div>
               <div className="bg-white rounded-lg shadow p-6">
-                <h3 className="text-lg font-semibold mb-4">30 Day Interview History</h3>
+                <h3 className="text-lg font-semibold mb-4">Mock Interview History</h3>
                 <div ref={chartRef} className="h-64 w-full" />
               </div>
               <div className="bg-white rounded-lg shadow p-6">
@@ -149,7 +149,7 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 gap-4">
               <CardWithIcon
                 icon={Briefcase}
-                title="Total Jobs Found"
+                title="Saved Jobs"
                 subtitle={savedJobs.length}
                 href="/dashboard/jobs"
               >
